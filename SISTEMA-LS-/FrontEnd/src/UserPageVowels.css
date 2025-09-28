@@ -1,0 +1,625 @@
+/* UserPageVowels.css - Estilos Completos */
+
+/* Contenedor principal */
+.vowels-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.vowels-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: center;
+}
+
+.back-button {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+}
+
+.back-button:hover {
+  transform: translateY(-50%) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(66, 153, 225, 0.4);
+}
+
+.vowels-title {
+  color: #2d3748;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vowels-subtitle {
+  color: #4a5568;
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Contenido principal */
+.vowels-main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Panel de video */
+.video-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.video-header h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Estado del sistema */
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e53e3e;
+  transition: background-color 0.3s ease;
+}
+
+.status-indicator.active {
+  background: #38a169;
+  box-shadow: 0 0 10px rgba(56, 161, 105, 0.5);
+}
+
+/* Contenedor de video */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-canvas {
+  background: transparent;
+}
+
+/* Overlay cuando la cámara está apagada */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 32, 44, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.camera-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.overlay-content p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Controles de video */
+.video-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(72, 187, 120, 0.4);
+}
+
+.stop-btn {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(245, 101, 101, 0.3);
+}
+
+.stop-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 101, 101, 0.4);
+}
+
+/* Información de detección */
+.detection-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hands-count {
+  background: rgba(66, 153, 225, 0.1);
+  color: #3182ce;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Mensaje de error */
+.error-message {
+  background: rgba(245, 101, 101, 0.1);
+  color: #e53e3e;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  border-left: 4px solid #e53e3e;
+}
+
+/* Panel de control */
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Sección vocal actual */
+.current-vowel-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.current-vowel-section h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0;
+}
+
+.current-vowel-display {
+  margin-bottom: 2rem;
+}
+
+.vowel-letter-large {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #4299e1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.vowel-name {
+  font-size: 1.2rem;
+  color: #4a5568;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Sección de progreso */
+.progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.progress-label {
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  background: #e2e8f0;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Selector de vocales */
+.vowel-selector-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.vowel-selector-section h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.vowel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
+.vowel-button {
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+  border: none;
+  border-radius: 15px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.vowel-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(66, 153, 225, 0.3);
+}
+
+.vowel-button.active {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  box-shadow: 0 8px 25px rgba(66, 153, 225, 0.4);
+}
+
+.vowel-letter {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.vowel-status {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Instrucciones */
+.instructions-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.instructions-section h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.instructions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(66, 153, 225, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.instruction-item:hover {
+  background: rgba(66, 153, 225, 0.15);
+  transform: translateX(5px);
+}
+
+.instruction-number {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.instruction-text {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* Estadísticas */
+.stats-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.stats-section h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(66, 153, 225, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(66, 153, 225, 0.15);
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4299e1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .vowels-main-content {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .vowels-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vowels-container {
+    padding: 1rem;
+  }
+  
+  .vowels-header {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .back-button {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+  
+  .vowels-main-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .vowels-title {
+    font-size: 1.8rem;
+  }
+  
+  .vowels-subtitle {
+    font-size: 1rem;
+  }
+  
+  .video-container {
+    height: 300px;
+  }
+  
+  .video-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .control-btn {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .vowel-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .vowels-header {
+    padding: 1rem;
+  }
+  
+  .vowels-title {
+    font-size: 1.5rem;
+  }
+  
+  .video-panel,
+  .current-vowel-section,
+  .vowel-selector-section,
+  .instructions-section,
+  .stats-section {
+    padding: 1.5rem;
+  }
+  
+  .vowel-letter-large {
+    font-size: 3rem;
+  }
+  
+  .vowel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.vowel-button.active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vowels-container > * {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Estados de hover mejorados */
+.vowel-button:not(.active):hover {
+  background: linear-gradient(135deg, #bee3f8, #90cdf4);
+}
+
+.instruction-item:hover .instruction-number {
+  transform: scale(1.1);
+}
+
+/* Efectos de glassmorphism */
+.video-panel::before,
+.current-vowel-section::before,
+.vowel-selector-section::before,
+.instructions-section::before,
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
